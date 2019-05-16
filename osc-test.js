@@ -1,4 +1,4 @@
-const { Client, Message } = require('node-osc');
+const { Client, Server, Message } = require('node-osc');
 const fs = require('fs');
 const readline = require('readline');
 
@@ -24,6 +24,14 @@ osc.on('error', (err) => {
 
 osc.open();
 */
+
+var server = new Server(4558);
+server.on('message', function (msg) {
+    console.log(`Message: ${msg}`);
+});
+
+// /Applications/Sonic Pi.app/server/ruby/bin
+// ../../native/ruby/bin/ruby sonic-pi-server.rb
 
 process.stdin.on('keypress', (str, key) => {
     if (key.ctrl && key.name === 'c') {
