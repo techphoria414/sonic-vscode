@@ -1,0 +1,59 @@
+{
+  "name": "sonicpi4code",
+  "version": "0.0.1",
+  "description": "",
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:sonicpi4code.run",
+    "onCommand:sonicpi4code.stop"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sonicpi4code.run",
+        "title": "Run Buffer in SonicPi"
+      },
+      {
+        "command": "sonicpi4code.stop",
+        "title": "Stop All Running Code in SonicPi"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "sonicpi4code.run",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "sonicpi4code.stop",
+        "key": "ctrl+shift+s",
+        "mac": "cmd+shift+s",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc  -p ./",
+    "lint": "tslint -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@types/vscode": "^1.33.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "node-osc": "^4.1.0"
+  }
+}
